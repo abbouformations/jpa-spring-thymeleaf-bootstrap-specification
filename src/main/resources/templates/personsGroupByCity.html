@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0" name="viewport"/>
+    <title>Formation Java EE - Spring Boot Thymeleaf example</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.7.2/css/all.min.css}" type="text/css"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+    <h2 class="text-center">Grouping persons by city </h2>
+
+    <div class="alert alert-success alert-dismissible fade show text-center message" role="alert"
+         th:if="${message != null}">
+        [[${message}]]
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+    </div>
+
+    <div th:if="${personsByCityDto.size() > 0}">
+        <table class="table table-hover table-responsive-xl">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">City</th>
+                <th scope="col">Count</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="personsByCityDto : ${personsByCityDto}">
+                <td>[[${personsByCityDto.city}]]</td>
+                <td>[[${personsByCityDto.count}]]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="" th:unless="${personsByCityDto.size() > 0}">
+        <span>No Person found!</span>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

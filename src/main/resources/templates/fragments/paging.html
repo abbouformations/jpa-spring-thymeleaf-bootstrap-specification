@@ -1,0 +1,11 @@
+<a class="page-link" rel="tooltip"
+   th:fragment="paging(pageNum, label, tooltip)"
+   th:href="@{'/persons?' +
+   ${firstname!=null && firstname!=''? 'firstname=' + firstname + '&' : ''} +
+   ${lastname!=null && lastname!=''? 'lastname=' + lastname + '&' : ''} +
+   ${age!=null && age!=''? 'age=' + age + '&' : ''} +
+   ${city!=null && city!=''? 'city=' + city + '&' : ''} +
+   'page=' + ${pageNum} +
+   '&size=' + ${pageSize}}" th:title="${tooltip}">
+    [[${label}]]
+</a>

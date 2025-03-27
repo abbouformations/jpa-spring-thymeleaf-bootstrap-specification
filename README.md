@@ -1,5 +1,5 @@
 - Using Spring Data JPA Specifications API to make search.
-- Implenting the pagination with Bootstrap and Spring Data JPA.
+- Implementing the pagination with Bootstrap and Spring Data JPA.
 - Logging whith logback.
 
   ![image](https://github.com/user-attachments/assets/e388bbfc-0921-4929-91a5-e927cbbe5f1b)
